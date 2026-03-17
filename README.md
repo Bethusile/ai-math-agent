@@ -1,32 +1,28 @@
-# Intelligent Arithmetic Agent (Math Pirate)
+# AI Math Agent
 
-A local AI Agent built with **Python** and **Ollama** that solves arithmetic problems by calling specific calculator tools. Instead of relying on the LLM's internal math capabilities, this agent uses **Function Calling** to ensure 100% accuracy.
+This project implements a simple AI agent that solves arithmetic problems written in English.
 
----
+The agent uses a local LLM from Ollama and calculator tools to perform arithmetic operations.
 
-## Overview
+## Tools
+- add
+- subtract
+- multiply
+- divide
 
-This project satisfies the requirements for **Task 2: Creating an Intelligent Agent**. It features a local LLM (Llama 3.2) equipped with a "Math Pirate" persona and access to real Python functions for arithmetic operations.
+## Requirements
 
-### Key Features
-- **Local Execution:** Runs entirely on your machine via Ollama.
-- **Tool Selection:** The agent intelligently decides which function (`add`, `subtract`, etc.) to call based on English queries.
-- **Chain of Thought:** Capable of chaining multiple tool calls for multi-step problems.
-- **Math Pirate Persona:** System-prompted to provide responses with a nautical flair.
+Install dependencies:
 
----
+pip install -r requirements.txt
 
-## Tech Stack
-- **Language:** Python 3.10+
-- **LLM Runner:** [Ollama](https://ollama.com/)
-- **Model:** `llama3.2` (Supports Tool Calling)
-- **Library:** `ollama-python`
+Install Ollama from:
+https://ollama.com
 
----
+Pull a model:
 
-## Getting Started
+ollama pull phi3
 
-### 1. Prerequisites
-Install Ollama and pull the required model:
-```bash
-ollama pull llama3.2
+## Running the agent
+
+python main.py
