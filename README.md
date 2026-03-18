@@ -26,3 +26,6 @@ ollama pull phi3
 ## Running the agent
 
 python main.py
+
+## Github repo
+https://github.com/Bethusile/ai-math-agent
