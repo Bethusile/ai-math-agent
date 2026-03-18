@@ -23,7 +23,7 @@ Follow these steps upon user input
 def extractNum(text):
     return list(map(float, re.findall(r'\d+',text)))
 
-def chooseTool(userInput):
+def chooseTool(userInput, operation):
 
     numbers = extractNum(userInput)
 
@@ -38,7 +38,20 @@ def chooseTool(userInput):
         return subtract(a,b)
     if "multiply" in userInput or "product" in userInput or "times" in userInput:
         return multiply(a,b)
-    if "divide" in userInput or "over" in userInput or "split" in userInput:
+    if "divide" in userInput or "over" in userInput or "split" in userInput or "share" in userInput:
         return divide(a,b)
     
     return "Error: operation not recognised."
+
+def runLLM(userInput):
+    response = ollama.chat(
+        model = "phi3",
+        messages = [ 
+            {"role": "system", "content": systemPrompt},
+            {"role": "user", "content": userInput}
+        ],
+        options={"temperature": 0.8}
+    )
+
+    return response["message"]["content"].strip().lower()
+    
